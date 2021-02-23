@@ -17,10 +17,10 @@ export const GrayButton = styled.div`
   }
 `;
 
-export const BlueButton = styled.div`
+export const BlueButton = styled.button`
   border: none;
-  width: 80px;
-  height: 40px;
+  width: ${ (prop:any) => prop.width || "80px"};
+  height: ${ (prop:any) => prop.height || "40px"};
   background: #3682F9;
   border-radius: 10px;
   display: flex;

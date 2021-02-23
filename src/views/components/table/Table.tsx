@@ -16,9 +16,12 @@ import {
   StatusInserçao,
   TipoDTX,
   DTPagamento,
+  Inserir,
 } from "./styles";
 
 import { BiPlus, BiCheckCircle, BiErrorCircle } from "react-icons/bi";
+import { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } from "node:constants";
+import Informations from "./Informations";
 
 function Table() {
   const { modalOpen, setModalOpen, setIdEntity } = useContext(
@@ -27,19 +30,24 @@ function Table() {
 
   return (
     <TableLayout>
+      <Informations>
+        <h3>Valor total: 50R$</h3>
+        <h3>Valor pendente: 0R$</h3>
+        <h3>Aguardando inserção: 5</h3>
+      </Informations>
       <ColumnTable>
         <Name>Nome</Name>
         <Rg>RG</Rg>
         <DataIdentificacao>Dt. de Identificação</DataIdentificacao>
-        <StatusPgto>Status Pagamento</StatusPgto>
-        <NossoNumero>Nosso Numero</NossoNumero>
+        <StatusPgto>Status pagamento</StatusPgto>
+        <NossoNumero>Nosso Nº</NossoNumero>
         <CnpjSsp>CNPJ-SSP</CnpjSsp>
         <Cpf>CPF</Cpf>
         <CnpjCpf>Cpf / CNPJ</CnpjCpf>
         <DTPagamento>Dt. de pagamento</DTPagamento>
         <TipoDTX>Tipo DTX</TipoDTX>
         <StatusInserçao>Status de inserção</StatusInserçao>
-        <StatusInserçao>Inserir</StatusInserçao>
+        <Inserir>Inserir</Inserir>
       </ColumnTable>
       {tabela.map((e) => (
         <ColumnTable key={e.id}>
@@ -62,14 +70,16 @@ function Table() {
               <BiErrorCircle color="red" size="23px" />
             )}
           </StatusInserçao>
-          <GrayButton
-            onClick={() => {
-              setModalOpen(!modalOpen);
-              setIdEntity(`${e.id}`);
-            }}
-          >
-            <BiPlus />
-          </GrayButton>
+          <Inserir>  
+            <GrayButton
+              onClick={() => {
+                setModalOpen(!modalOpen);
+                setIdEntity(`${e.id}`);
+              }}
+            >
+              <BiPlus />
+            </GrayButton>
+          </Inserir>
         </ColumnTable>
       ))}
     </TableLayout>

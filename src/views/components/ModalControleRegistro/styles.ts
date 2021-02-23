@@ -30,3 +30,13 @@ export const Right = styled.div`
   justify-content: center;
   align-items: center;
 `
+
+export const ConditionalIsent = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3682F9;
+  font-weight: bold;
+`

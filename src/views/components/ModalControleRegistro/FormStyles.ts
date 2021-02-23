@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FormModal = styled.div`
+export const FormModal = styled.form`
   width: 100%;
 `;
 
@@ -16,6 +16,8 @@ export const ModalOptionsGroup = styled.div`
 
 export const CommonLabelInputColumn = styled.label`
   font-size: 0.9rem;
+  font-weight: 500;
+  color: #3682F9;
 `
 
 export const Input = styled.input`
@@ -27,7 +29,31 @@ export const Input = styled.input`
   border-radius: 5px;
 `
 
+export const TextArea = styled.textarea`
+  background: white;
+  border: none;
+  height: 100px;
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 5px;
+
+  resize: none;
+`
+
 export const ChooseStatus = styled.button`
   width: 150px;
   height: 50px;
 `
+
+export const UserLoggedIn = styled.div`
+  position: fixed;
+  top: 15%;
+  display: flex;
+  flex-direction: column;
+
+  h2 { 
+    color: #3682F9;
+    font-weight: bold;
+  }
+`
+
