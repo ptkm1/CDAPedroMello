@@ -33,7 +33,7 @@ function Modal() {
         <BlueButton onClick={ () => setIsento(0) }>Não isento</BlueButton>
       </ConditionalIsent>
 
-      {isento == 1 && (
+      {isento == 0 && (
         <Container>
           { modalOpen ? (
             <CloseModalButton onClick={ () => setModalOpen( !modalOpen ) }> 
@@ -79,7 +79,7 @@ function Modal() {
           </Right>
         </Container>
       )}
-      { isento === 0 && <ConditionalModal /> }
+      { isento === 1 && <ConditionalModal /> }
       </Container>
   )
 }

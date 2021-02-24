@@ -5,10 +5,10 @@ const ContextAuthenticate = createContext( {} as IAuthContext )
 
 function AuthenticateProvider( { children }:any ) {
 
-  const [ User, setUser ]:any = useState(true)
+  const [ User, setUser ]:any = useState({ name: "Sande" })
 
   return (
-    <ContextAuthenticate.Provider value={{ signed: Boolean(User) }} >
+    <ContextAuthenticate.Provider value={{ signed: Boolean(User), User }} >
       { children }
     </ContextAuthenticate.Provider>
   )

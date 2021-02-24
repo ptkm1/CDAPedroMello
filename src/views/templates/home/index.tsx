@@ -1,4 +1,4 @@
-import LoginForm from "../../components/LoginForm"
+import LoginForm from "../../components/formLogin/LoginForm"
 import { Container } from "../../design/Layout"
 
 function Home() {

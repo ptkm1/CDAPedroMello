@@ -17,7 +17,7 @@ export const GrayButton = styled.div`
   }
 `;
 
-export const BlueButton = styled.button`
+export const BlueButton = styled.a`
   border: none;
   width: ${ (prop:any) => prop.width || "80px"};
   height: ${ (prop:any) => prop.height || "40px"};
