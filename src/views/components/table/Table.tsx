@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { tabela } from "../../../infra/services/fakeapi";
 import { ComponentsContext } from "../../../useCases/contexts/Components/ComponentsContexts";
 import { GrayButton } from "../buttons/CommonButtons";
@@ -20,13 +20,44 @@ import {
 } from "./styles";
 
 import { BiPlus, BiCheckCircle, BiErrorCircle } from "react-icons/bi";
-import { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } from "node:constants";
 import Informations from "./Informations";
+import Requisition from "../../../useCases/tabelaDeControle/Requisition";
+import { api } from "../../../infra/services/api";
 
 function Table() {
+
+
   const { modalOpen, setModalOpen, setIdEntity } = useContext(
     ComponentsContext
   );
+
+  const [ tabela1, setTabela ]:any = useState()
+
+  useEffect(()=>{
+
+    async function getTable() {
+
+      const data_escolhida: any = sessionStorage.getItem("CDAdataControle")
+  
+      try {
+        
+        const { data } = await api.post("/cda/listarcolunas", { data_prestacao: JSON.parse(data_escolhida) })
+  
+        if(!data) throw new Error()
+  
+        return setTabela(data.objeto)
+  
+      } catch (error) {
+  
+        alert(error.response.data.mensagem)
+  
+      }
+  
+    }
+
+    getTable()
+
+  },[])
 
   return (
     <TableLayout>
@@ -49,7 +80,7 @@ function Table() {
         <StatusInserçao>Status de inserção</StatusInserçao>
         <Inserir>Inserir</Inserir>
       </ColumnTable>
-      {tabela.map((e) => (
+      { tabela1 ? tabela1.map( (e:any) => (
         <ColumnTable key={e.id}>
           <Name>{e.nome}</Name>
           <Rg>{e.rg}</Rg>
@@ -81,7 +112,7 @@ function Table() {
             </GrayButton>
           </Inserir>
         </ColumnTable>
-      ))}
+      ) ) : <h1>Carregando..</h1> }
     </TableLayout>
   );
 }
