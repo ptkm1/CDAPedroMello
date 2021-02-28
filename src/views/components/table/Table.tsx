@@ -80,26 +80,27 @@ function Table() {
         <StatusInserçao>Status de inserção</StatusInserçao>
         <Inserir>Inserir</Inserir>
       </ColumnTable>
+      
       { tabela1 ? tabela1.map( (e:any) => (
         <ColumnTable key={e.id}>
           <Name>{e.nome}</Name>
           <Rg>{e.rg}</Rg>
-          <DataIdentificacao>{e.data_De_Identificaçao}</DataIdentificacao>
-          <StatusPgto>{e.status_Pgto}</StatusPgto>
-          <NossoNumero>{e.nossoN}</NossoNumero>
+          <DataIdentificacao>{ e.data_de_identificacao }</DataIdentificacao>
+          <StatusPgto>{ e.status_do_pagamento }</StatusPgto>
+          <NossoNumero>{ e.nosso_numero }</NossoNumero>
           <CnpjSsp>
-            {e.cnpj_Ssp && <BiCheckCircle color="green" size="23px" />}
+            { e.cnpj_ssp && <BiCheckCircle color="green" size="23px" /> }
           </CnpjSsp>
-          <Cpf>{e.cpf && <BiCheckCircle color="green" size="23px" />}</Cpf>
-          <CnpjCpf>{e.cpf_cnpj}</CnpjCpf>
-          <DTPagamento>{e.dt_Pgto}</DTPagamento>
-          <TipoDTX>{e.tipo_dtx}</TipoDTX>
+          <Cpf>{ e.cpf && <BiCheckCircle color="green" size="23px" /> }</Cpf>
+          <CnpjCpf>{ e.cpf_ou_cnpj }</CnpjCpf>
+          <DTPagamento>{ e.data_de_pagamento }</DTPagamento>
+          <TipoDTX>{ e.tipo_dtx }</TipoDTX>
           <StatusInserçao>
-            {e.status_inserçao ? (
-              <BiCheckCircle color="green" size="23px" />
-            ) : (
+            { e.status_insercao == "false" ? (
               <BiErrorCircle color="red" size="23px" />
-            )}
+              ) : (
+              <BiCheckCircle color="green" size="23px" />
+            ) }
           </StatusInserçao>
           <Inserir>  
             <GrayButton

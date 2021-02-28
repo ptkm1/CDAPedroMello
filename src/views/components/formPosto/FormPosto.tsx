@@ -47,7 +47,7 @@ function FormPosto() {
     <FormDesign onSubmit={ SelecionarPosto } >
       <InputGroup>
         <Label htmlFor="username">Usuário</Label>
-        <Input name="name" id="username" value={ User.name } type="text" disabled />
+        <Input name="name" id="username" value={ User.usuario.nome } type="text" disabled />
       </InputGroup>
 
       <InputGroup>

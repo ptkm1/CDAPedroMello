@@ -37,7 +37,7 @@ export const Name = styled.h3`
   justify-content: center;
   text-justify: center;
   align-items: center;
-  text-align: left;
+  text-align: center;
   font-size: 0.9rem;
   color: #3682F9;
   border-right: solid 1px rgba(196, 196, 196, 0.18);
